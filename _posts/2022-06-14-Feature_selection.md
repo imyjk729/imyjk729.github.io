@@ -46,6 +46,13 @@ feature selection에서도 다양한 방법이 존재합니다. 크게 supervise
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/173487682-51965c4b-5e3a-4ab4-9b64-f79a51a71972.png"  width="400" height="250"/>
 </p>
+<p align = "center">
+<span style= "font-size:0.8em; color:gray;">
+<i>
+fig.1 출처 : ref.3
+</i>
+</span>
+</p>
   
 
 1. Supervised models : output label에 가장 부합하는 feature를 선택합니다. target에 부합하는 feature를 효율적으로 선택할 수 있습니다.  
@@ -67,7 +74,13 @@ feature selection에서도 다양한 방법이 존재합니다. 크게 supervise
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/173487704-0e9e3078-5271-49f1-9ba3-7c4dd249bef0.png"  width="200" height="250"/>
 </p>
-  
+<p align = "center">
+<span style= "font-size:0.8em; color:gray;">
+<i>
+fig.2 출처 : ref.3
+</i>
+</span>
+</p>  
 
 - 반복 과정이 없어서 계산 속도가 빠릅니다.  
 - feature간의 상관계수를 통해 feature subset을 구하는 것이 최적의 방법이 아닐 수 있습니다.  
@@ -88,6 +101,13 @@ feature selection에서도 다양한 방법이 존재합니다. 크게 supervise
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/173487727-5be37f8b-a540-40f8-bc67-34c8e82e346f.png"  width="200" height="250"/>
 </p>
+<p align = "center">
+<span style= "font-size:0.8em; color:gray;">
+<i>
+fig.3 출처 : ref.3
+</i>
+</span>
+</p>
 
 - **좀 더 적은 계수를 가지는 회귀식**을 찾는 방향으로 제약조건을 주어 이를 제어합니다.
 - Example
@@ -104,6 +124,13 @@ feature selection에서도 다양한 방법이 존재합니다. 크게 supervise
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/173487751-ca806e8d-e99f-4ac0-a8a4-7f9d1f41bce6.png"  width="200" height="250"/>
+</p>
+<p align = "center">
+<span style= "font-size:0.8em; color:gray;">
+<i>
+fig.4 출처 : ref.3
+</i>
+</span>
 </p>
 
 - 예측 모델을 사용하여 feature subset을 계속 테스트하는 **greedy한 접근방식** → 연산량이 많다.
