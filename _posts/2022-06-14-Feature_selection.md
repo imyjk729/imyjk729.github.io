@@ -45,35 +45,39 @@ feature selection에서도 다양한 방법이 존재합니다. 크게 supervise
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/173487682-51965c4b-5e3a-4ab4-9b64-f79a51a71972.png"  width="400" height="250"/>
-<p>
+</p>
+  
 
-1. Supervised models : output label에 가장 부합하는 feature를 선택합니다. target에 부합하는 feature를 효율적으로 선택할 수 있습니다.
-2. Unsupervised models : labeling이 없는 데이터를 활용하여 feature selection을 합니다.
+1. Supervised models : output label에 가장 부합하는 feature를 선택합니다. target에 부합하는 feature를 효율적으로 선택할 수 있습니다.  
+
+2. Unsupervised models : labeling이 없는 데이터를 활용하여 feature selection을 합니다.  
     
     *→ target 없이 어떻게 feature를 선택할 수 있을까? 이에 관해서는 추후 공부를 더 해볼 예정!*
-    
+   
+   <br>
+
+**supervised model에서는 Intrinsic(Embedded method로 칭하기도 함), Wrapper method, Filter method이 있습니다.**  
+
 <br>
 
-**supervised model에서는 Intrinsic(Embedded method로 칭하기도 함), Wrapper method, Filter method이 있습니다.** 
+### Filter Method  
 
-<br>
-
-### Filter Method
-
-통계적 측정방법을 사용하여 **feature의 상관관계**를 찾는 방법
+통계적 측정방법을 사용하여 **feature의 상관관계**를 찾는 방법  
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/173487704-0e9e3078-5271-49f1-9ba3-7c4dd249bef0.png"  width="200" height="250"/>
-<p>
+</p>
+  
 
-- 반복 과정이 없어서 계산 속도가 빠릅니다.
-- feature간의 상관계수를 통해 feature subset을 구하는 것이 최적의 방법이 아닐 수 있습니다.
-- Example
-    - information gain
-    - chi-square test
-    - fisher score
-    - correlation coefficient
-    - variance threshold
+- 반복 과정이 없어서 계산 속도가 빠릅니다.  
+- feature간의 상관계수를 통해 feature subset을 구하는 것이 최적의 방법이 아닐 수 있습니다.  
+- Example  
+    - information gain  
+    - chi-square test  
+    - fisher score  
+    - correlation coefficient  
+    - variance threshold  
+
 
 <br>
 
@@ -83,7 +87,7 @@ feature selection에서도 다양한 방법이 존재합니다. 크게 supervise
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/173487727-5be37f8b-a540-40f8-bc67-34c8e82e346f.png"  width="200" height="250"/>
-<p>
+</p>
 
 - **좀 더 적은 계수를 가지는 회귀식**을 찾는 방향으로 제약조건을 주어 이를 제어합니다.
 - Example
@@ -100,7 +104,7 @@ feature selection에서도 다양한 방법이 존재합니다. 크게 supervise
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/173487751-ca806e8d-e99f-4ac0-a8a4-7f9d1f41bce6.png"  width="200" height="250"/>
-<p>
+</p>
 
 - 예측 모델을 사용하여 feature subset을 계속 테스트하는 **greedy한 접근방식** → 연산량이 많다.
 - Example
