@@ -11,22 +11,16 @@ tags: [ML]
 <br>
 
 많은 정보 속에서 우리에게 필요한 정보만 찾아내는 것은 매우 중요합니다!
-
 모델도 마찬가지 입니다! 
-
 머신러닝 모델에서 간단하지만 중요한 rule이 존재합니다.
 
-<br>
 
 > **goes in, comes out**
 > 
 
-<br>
 
 즉, 쓰레기를 넣으면 쓰레기가 나온다(**garbage in, garbage out**)고 받아들일 수 있습니다.
-
 하지만 데이터에는 noise가 존재할 수 밖에 없습니다. 
-
 우리의 **목적(target)에 부합하는 feature**만 선택하는 작업이 필요합니다.
 
 <br>
@@ -58,10 +52,8 @@ fig.1 출처 : ref.3
 1. Supervised models : output label에 가장 부합하는 feature를 선택합니다. target에 부합하는 feature를 효율적으로 선택할 수 있습니다.  
 
 2. Unsupervised models : labeling이 없는 데이터를 활용하여 feature selection을 합니다.  
-    
     *→ target 없이 어떻게 feature를 선택할 수 있을까? 이에 관해서는 추후 공부를 더 해볼 예정!*
    
-   <br>
 
 **supervised model에서는 Intrinsic(Embedded method로 칭하기도 함), Wrapper method, Filter method이 있습니다.**  
 
