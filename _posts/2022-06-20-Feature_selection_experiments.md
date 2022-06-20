@@ -6,9 +6,8 @@ categories: ML
 tags: [ML, Experiments]
 ---
 
-**직접 실험하여 공부하고 정리한 기록입니다. 저의 뇌피셜이 많으니 유의해주세요!** 
+**직접 실험하여 공부하고 정리한 기록입니다. 저의 뇌피셜이 많으니 유의해주세요!**   
 
-</br>
 
 이론적으로 공부해보고 실제로 Iscream 데이터셋을 활용하여 실험을 진행했습니다.  
 
@@ -16,8 +15,7 @@ tags: [ML, Experiments]
 
 Pearson’s correlation, LGBM 기반 Feature importance를 사용하여 Feature selection을 시도했습니다.  
 
-</br>
-</br>
+<br>
 
 ## Base features
 
@@ -33,17 +31,13 @@ user_acc : user_correct_answer / user_total_answer (실시간 정답률)
 
 test_mean, test_sum : testId의 총 정답률 계산 및 총 갯수   
 
-tag_mean, tag_sum : KnowledgeTag의 총 정답률 계산 및 총 갯수    
+tag_mean, tag_sum : KnowledgeTag의 총 정답률 계산 및 총 갯수     
 
-</br>
-
-**Target** : answerCode   
-
+**Target** : answerCode    
 
 **test dataset 기준 AUC : 0.7379**   
 
-</br>
-</br>
+<br>
 
 ## Feature Engineering
 
@@ -51,7 +45,6 @@ User, Test, Timestamp 측면에서 feature를 결합하거나 재구성하여 23
 
 Pearson’s correlation을 사용하여 feature간의 correlation을 확인해보고, LGBM 기반 Feature importance를 사용하여 모델에서 어떤 feature가 큰 영향을 미쳤는지 파악했습니다.    
 
-</br>
 </br>
 
 ## Result
@@ -62,18 +55,16 @@ Pearson’s correlation을 사용하여 feature간의 correlation을 확인해�
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/174608471-dfddb30f-d97c-4652-87e3-e6fdd97fc6e1.png"  width="750" height="800"/>
-</p>
+</p>    
 
-</br>
+
 
 ### Feature importance (LGBM)
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/174608860-fcda50d6-9b05-4ab3-b28e-b916ce67421b.png"  width="500" height="500"/>
-</p>
-  
+</p>    
 
-</br>
 
 **target인 answerCode를 제외하고 각각의 correlation을 비교했을 때 상관계수가 0.5 이상인 경우**
 
@@ -85,36 +76,31 @@ Pearson’s correlation을 사용하여 feature간의 correlation을 확인해�
 - assess_mean : assess_sum, test_mean, tag_mean
 - assess_sum : test_mean, test_sum, tag_mean
 - test_mean : tag_mean
-- tag_mean : tag_sum   
+- tag_mean : tag_sum       
 
-</br>
 
 **answerCode의 overfitting의 원인이 되므로 target을 제외한 두 feature의 상관관계가 큰 경우 feature importance가 상대적으로 낮은 feature를 제거해주기로 결정했습니다.**
 
 **→ 그러나 correlation이 크더라도 feature importance가 크면 일단 제거하지 않았습니다.**   
 
-</br>
-</br>
+<br>
 
 ## Feature selection
 
-### user_correct_answer, normalized_time, relative_time, is_night 제거 (feature 19개) → validation set 기준으로는 AUC 상승 (0.7441)    
+### user_correct_answer, normalized_time, relative_time, is_night 제거 (feature 19개) → validation set 기준으로는 AUC 상승 (0.7441)     
 
-</br>
 
 ### Pearson’s correlation
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/174609139-072d3d53-57b5-4fdb-9de9-7174d2e4b6a7.png"  width="750" height="800"/>
-</p> 
+</p>     
 
-</br>
 
 ### Feature importance (LGBM)
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/174612336-22489bc9-f51c-40d2-94c4-867e0620be95.png"  width="500" height="500"/>
-</p> 
+</p>    
 
-</br>
 
 - time : mean_time
 - assess_mean : assess_sum, test_mean, tag_mean
@@ -122,67 +108,53 @@ Pearson’s correlation을 사용하여 feature간의 correlation을 확인해�
 - test_mean : tag_mean
 - tag_mean : tag_sum   
 
-</br>
-</br>
+<br>
 
-## Feature selection 실험 (validation set 기준 AUC)   
-
-</br>
+## Feature selection 실험 (validation set 기준 AUC)      
 
 - user_correct_answer, normalized_time, is_night ,relative_time 제거 : 0.7441
 - user_correct_answer, normalized_time, is_night ,relative_time, feature_correct, user_total_answer, KnowledgeTag 제거 : 0.7441
-- user_correct_answer, normalized_time, is_night ,relative_time, feature_correct, user_total_answer, KnowledgeTag, hour 제거 : 0.7441   
+- user_correct_answer, normalized_time, is_night ,relative_time, feature_correct, user_total_answer, KnowledgeTag, hour 제거 : 0.7441    
 
-</br>
+- user_correct_answer, normalized_time, is_night ,relative_time, assess_sum 제거 : 0.7438    
 
-- user_correct_answer, normalized_time, is_night ,relative_time, assess_sum 제거 : 0.7438   
-
-</br>
 
 - user_correct_answer, normalized_time, is_night ,relative_time, assess_sum, test_mean, tag_mean 제거 : 0.7388
-- user_correct_answer, normalized_time, is_night ,relative_time, assess_sum, test_mean, tag_mean, hour 제거 : 0.7406   
+- user_correct_answer, normalized_time, is_night ,relative_time, assess_sum, test_mean, tag_mean, hour 제거 : 0.7406    
 
-</br>
 
 - user_correct_answer, normalized_time, is_night ,relative_time, assess_sum, test_mean, tag_mean, hour, mean_time 제거 : 0.7374
 - user_correct_answer, normalized_time, is_night ,relative_time, assess_sum, test_mean, tag_mean, hour, mean_time,    
-feature_correct, user_total_answer, KnowledgeTag 제거 : 0.7374   
+feature_correct, user_total_answer, KnowledgeTag 제거 : 0.7374    
 
-</br>
 
 **→ feature_correct, user_total_answer, KnowledgeTag, hour를 제거해도 성능차이가 별로 없다는 것을 확인했습니다. 해당 feature를 제거하여 feature selection을 시도했습니다.**   
 
-</br>
+<br>
 
 
-## Feature 16개 : test dataset 기준 AUC 0.7935 (가장 성능 좋음)   
+## Feature 16개 : test dataset 기준 AUC 0.7935 (가장 성능 좋음)    
 
-</br>
 
-### Pearson’s correlation
+### Pearson’s correlation    
 
-</br>
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/174613242-da3ada12-b1ef-4025-a1b5-29189bc0c528.png"  width="750" height="800"/>
-</p> 
+</p>    
 
-</br>
 
-### Feature importance   
+### Feature importance    
 
-</br>
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/174613616-195f3008-92f6-47ff-8a5b-a3a9fe6ae3ce.png"  width="500" height="500"/>
-</p> 
+</p>     
 
-</br>
 
 Feature importance에서 순위가 낮고, 다른 변수와 상관관계가 큰 feature를 우선적으로 제거하니 overfitting이 감소하여 성능이 향상되었습니다.    
 
-</br>
-</br>
+<br>    
 
 ### validation dataset 실험
 
@@ -190,33 +162,29 @@ Feature importance에서 순위가 낮고, 다른 변수와 상관관계가 큰 
 feature_correct, user_total_answer, KnowledgeTag,  
 hour 제거  
 **0.7441(correct_shift_1 포함 X)  
-0.7456(correct_shift_1 포함)**  
+0.7456(correct_shift_1 포함)**    
 
-</br>
 
 - user_correct_answer, normalized_time, is_night ,relative_time,    
 user_total_answer, KnowledgeTag      
 hour 제거      
 **0.7439(correct_shift_1 포함)   
-→ 이로써 feature_correct(output과 모든 변수에 대한 correlation이 낮음)는 필요없는 feature로 판단**   
+→ 이로써 feature_correct(output과 모든 변수에 대한 correlation이 낮음)는 필요없는 feature로 판단**    
 
-</br>
 
 - normalized_time, is_night ,relative_time,    
 feature_correct, user_total_answer, KnowledgeTag,    
 hour 제거    
 **0.7453(correct_shift_1 포함)   
-→ 이로써 user_correct_answer는 필요없는 feature로 판단**   
+→ 이로써 user_correct_answer는 필요없는 feature로 판단**    
 
-</br>
 
 - user_correct_answer, normalized_time, is_night ,relative_time,    
 feature_correct, user_total_answer, KnowledgeTag,    
 hour, mean_time 제거   
 **0.7428(correct_shift_1 포함)   
-→ Feature selection 하면 성능 감소 : time 관련 데이터는 feature exctraction을 시도하는 것이 좋다고 판단**   
+→ Feature selection 하면 성능 감소 : time 관련 데이터는 feature exctraction을 시도하는 것이 좋다고 판단**    
 
-</br>
 
 - user_correct_answer, normalized_time, is_night ,relative_time,    
 feature_correct, user_total_answer, KnowledgeTag,    
@@ -224,7 +192,6 @@ hour, time_median 제거 (correlation은 높으나 feature importance가 낮음)
 **0.7456(correct_shift_1 포함)    
 → Feature selection 하면 성능 향상**    
 
-</br>
 
 - user_correct_answer, normalized_time, is_night ,relative_time,    
 feature_correct, user_total_answer, KnowledgeTag,    
@@ -232,12 +199,10 @@ hour, time_median, test_sum 제거 (correlation은 높으나 feature importance�
 **0.7428(correct_shift_1 포함)    
 → Feature selection하면 성능 하락 : Feature importance가 낮다고 섣불리 제거할 수 없음**   
 
-</br>
-</br>
+<br>
 
-## feature 15개 (valid dataset → 0.7456, test dataset → 0.7884).   
+## feature 15개 (valid dataset → 0.7456, test dataset → 0.7884)    
 
-</br>
 
 validation dataset 기준 가장 성능이 높았으나 실제 test dataset에서는 성능이 잘 안나왔습니다.    
 
@@ -245,7 +210,7 @@ validation dataset 기준 가장 성능이 높았으나 실제 test dataset에�
 
 **Feature selection을 지속하면 더 하락될 것으로 예상하여 실험은 여기서 마무리했습니다.**   
 
-</br>
+<br>
 
 ## 고찰
 
