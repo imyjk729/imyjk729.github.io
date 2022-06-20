@@ -41,7 +41,7 @@ Pearson’s correlation을 사용하여 feature간의 correlation을 확인해�
 
 ## Result
 
-### Feature 23개 : test dataset 기준 AUC 0.7885
+#### Feature 23개 : test dataset 기준 AUC 0.7885
 
 **Pearson’s correlation**
 
@@ -79,7 +79,7 @@ Pearson’s correlation을 사용하여 feature간의 correlation을 확인해�
 
 ## Feature selection
 
-### user_correct_answer, normalized_time, relative_time, is_night 제거 (feature 19개) → validation set 기준으로는 AUC 상승 (0.7441)     
+#### user_correct_answer, normalized_time, relative_time, is_night 제거 (feature 19개) → validation set 기준으로는 AUC 상승 (0.7441)     
 
 
 **Pearson’s correlation**
@@ -102,7 +102,7 @@ Pearson’s correlation을 사용하여 feature간의 correlation을 확인해�
 
 <br>
 
-## Feature selection 실험 (validation set 기준 AUC)      
+### Feature selection 실험 (validation set 기준 AUC)      
 
 - user_correct_answer, normalized_time, is_night ,relative_time 제거 : 0.7441
 - user_correct_answer, normalized_time, is_night ,relative_time, feature_correct, user_total_answer, KnowledgeTag 제거 : 0.7441
@@ -125,7 +125,7 @@ feature_correct, user_total_answer, KnowledgeTag 제거 : 0.7374
 <br>
 
 
-## Feature 16개 : test dataset 기준 AUC 0.7935 (가장 성능 좋음)    
+#### Feature 16개 : test dataset 기준 AUC 0.7935 (가장 성능 좋음)    
 
 
 **Pearson’s correlation**   
@@ -193,7 +193,7 @@ hour, time_median, test_sum 제거 (correlation은 높으나 feature importance�
 
 <br>
 
-## feature 15개 (valid dataset → 0.7456, test dataset → 0.7884)    
+#### feature 15개 (valid dataset → 0.7456, test dataset → 0.7884)    
 
 
 validation dataset 기준 가장 성능이 높았으나 실제 test dataset에서는 성능이 잘 안나왔습니다.    
