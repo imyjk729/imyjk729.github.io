@@ -10,9 +10,7 @@ tags: [ML, Experiments]
 
 
 이론적으로 공부해보고 실제로 Iscream 데이터셋을 활용하여 실험을 진행했습니다.  
-
 (부스트캠프 AI Tech 3기 DKT 대회용 Iscream 데이터셋을 사용했으며 데이터는 제공할 수 없습니다.)  
-
 Pearson’s correlation, LGBM 기반 Feature importance를 사용하여 Feature selection을 시도했습니다.  
 
 <br>
@@ -20,17 +18,11 @@ Pearson’s correlation, LGBM 기반 Feature importance를 사용하여 Feature 
 ## Base features
 
 userID, testID, assessmentItemID, KnowldgeTage    
-
 (label encoding을 수행한 후 Embedding indexing 접근)   
-
 user_correct_answer : 유저들의 정답 맞춘 갯수를 시간순으로 계산 (NaN,1,2...)   
-
 user_total_answer : 유저들의 문제풀이 수를 시간순으로 숫자를 매김 (0, 1, 2, ...)   
-
 user_acc : user_correct_answer / user_total_answer (실시간 정답률)   
-
 test_mean, test_sum : testId의 총 정답률 계산 및 총 갯수   
-
 tag_mean, tag_sum : KnowledgeTag의 총 정답률 계산 및 총 갯수     
 
 **Target** : answerCode    
@@ -45,13 +37,13 @@ User, Test, Timestamp 측면에서 feature를 결합하거나 재구성하여 23
 
 Pearson’s correlation을 사용하여 feature간의 correlation을 확인해보고, LGBM 기반 Feature importance를 사용하여 모델에서 어떤 feature가 큰 영향을 미쳤는지 파악했습니다.    
 
-</br>
+<br>
 
 ## Result
 
 ### Feature 23개 : test dataset 기준 AUC 0.7885
 
-### Pearson’s correlation
+**Pearson’s correlation**
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/174608471-dfddb30f-d97c-4652-87e3-e6fdd97fc6e1.png"  width="750" height="800"/>
@@ -59,7 +51,7 @@ Pearson’s correlation을 사용하여 feature간의 correlation을 확인해�
 
 
 
-### Feature importance (LGBM)
+**Feature importance (LGBM)**
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/174608860-fcda50d6-9b05-4ab3-b28e-b916ce67421b.png"  width="500" height="500"/>
@@ -90,13 +82,13 @@ Pearson’s correlation을 사용하여 feature간의 correlation을 확인해�
 ### user_correct_answer, normalized_time, relative_time, is_night 제거 (feature 19개) → validation set 기준으로는 AUC 상승 (0.7441)     
 
 
-### Pearson’s correlation
+**Pearson’s correlation**
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/174609139-072d3d53-57b5-4fdb-9de9-7174d2e4b6a7.png"  width="750" height="800"/>
 </p>     
 
 
-### Feature importance (LGBM)
+**Feature importance (LGBM)**
 <p align="center">
 <img src="https://user-images.githubusercontent.com/68064510/174612336-22489bc9-f51c-40d2-94c4-867e0620be95.png"  width="500" height="500"/>
 </p>    
@@ -136,7 +128,7 @@ feature_correct, user_total_answer, KnowledgeTag 제거 : 0.7374
 ## Feature 16개 : test dataset 기준 AUC 0.7935 (가장 성능 좋음)    
 
 
-### Pearson’s correlation    
+**Pearson’s correlation**   
 
 
 <p align="center">
@@ -144,7 +136,7 @@ feature_correct, user_total_answer, KnowledgeTag 제거 : 0.7374
 </p>    
 
 
-### Feature importance    
+**Feature importance**       
 
 
 <p align="center">
